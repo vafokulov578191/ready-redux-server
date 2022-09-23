@@ -11,10 +11,20 @@ export const fetchUsers = createAsyncThunk(
     }
 )
 
+
 export const removeUser = createAsyncThunk(
     'user/removeUser',
+    async ({id}) => {
+        console.log(id);
+        const { data } = await axios.delete(`http://localhost:3001/users/${id}`)
+        return data
+    }
+)
 
-    async(id) => {
-        const { data } = await axios.delete(`http://localhost:3001/users${id}`)
+export const addUser = createAsyncThunk(
+    'user/addUser',
+    async (db) => {
+        const {data} = await axios.post(`http://localhost:3001/users`, db)
+        return data
     }
 )

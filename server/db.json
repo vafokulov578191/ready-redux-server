@@ -1,6 +1,8 @@
 {
-    "users": [{
-        "id": 1,
-        "name": "Alex adams"
-    }]
+  "users": [
+    {
+      "id": 1,
+      "name": "Alex adams"
+    }
+  ]
 }

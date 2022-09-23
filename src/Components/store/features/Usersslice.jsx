@@ -1,7 +1,7 @@
 import { createSlice } from "@reduxjs/toolkit";
 import { fetchUsers } from "../Userthunk";
 
-export const usersSlice = createSlice({
+export const Usersslice = createSlice({
     name: 'users',
     initialState: {
         data: [],
@@ -10,17 +10,17 @@ export const usersSlice = createSlice({
     reducers: {},
     extraReducers(builder) {
         builder
-        .addCase(fetchUsers.pending, (state, action) => {
-            state.status = 'loading...'
-        })
-        .addCase(fetchUsers.fulfilled, (state, action) => {
-            state.status = 'success'
-            console.log(action.payload);
-        })
-        .addCase(fetchUsers.rejected, (state, action) => {
-            state.status = 'Eror'
-        })
+            .addCase(fetchUsers.pending, (state, action) => {
+                state.status = 'loading...'
+            })
+            .addCase(fetchUsers.fulfilled, (state, action) => {
+                state.status = 'success'
+                state.data = action.payload
+            })
+            .addCase(fetchUsers.rejected, (state, action) => {
+                state.status = 'Eror'
+            })
     }
 })
 
-export default usersSlice.reducer
+export default Usersslice.reducer
